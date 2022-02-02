@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<script language="javascript" type="text/javascript">
+		function stop(){
+			window.location = 'disparo.php?run=shell';
+		}
+	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="zdg.css">
+</head>
+
+<body>
+    <div>
+	<img src="https://zapdasgalaxias.com.br/wp-content/uploads/elementor/thumbs/icone-p7nqaeuwl6ck4tz33sz0asflw2opfsqwutv8l3hfk0.png" style="height:50px;"><br>
+	<span><b>VERSÃO BETA MULTIDISPARADOR PARA LANÇAMENTOS</b></span><br><br>
+		<form action="disparo.php" method="post">
+			LEADS => Insira a lista de leads conforme exemplo abaixo<br> <textarea name="leads" cols="40" rows="5" placeholder="553588754197,Pedro Bastos,bloco1&#10;553588754197,Pedro Bastos,bloco2&#10;553588754197,Pedro Bastos,bloco3" required></textarea><br /><br />
+			URL API => Insira a URL fornecida pelo suporte:<br> <input required placeholder="https://url.mydomain.com.br/" style="width:50%" type="text" name="url" /><br /><br />
+			SAUDAÇÃO => Insira varáveis para saudação separadas por ;<br> <input placeholder="Oi, tudo bem?;Olá como vai você?;Falaaa, tudo certo?" style="width:50%" type="text" name="saudacao" /><br /><br />
+			MENSAGEM => Insira a sua mensagem<br> <textarea name="txt" cols="40" rows="5"></textarea><br /><br />
+			DESPEDIDA => Insira varáveis para despedida separadas por ;<br> <input placeholder="Até mais!;Nos vemos por aí!;Abraços!" style="width:50%" type="text" name="despedida" /><br /><br />
+			Setar o tempo aleatório em segundos <br> Min: <input required placeholder="2" style="width:5%" type="text" name="min" />   Max: <input required placeholder="31" style="width:5%" type="text" name="max" /><br /><br />
+			Marque o checkox para enviar arquivos (tamanho max 64MB)<br>
+			<input type="checkbox" name="img" value="img">
+			URL DO ARQUIVO:<br> <input placeholder="https://zapdasgalaxias.com.br/wp-content/uploads/2020/11/mock2.png" style="width:50%" type="text" name="urlFile" /><br /><br />
+			TÍTULO:<br> <input placeholder="Zap das Galáxias 2.0" style="width:50%" type="text" name="titulo" /><br /><br />
+			<input class="btn" type="submit" name="submit" value="LANÇAR!" /> <input class="btn" type="button" onclick="stop()" value="PARAR!">
+			</br></br></br>
+			<?php
+			if(isset($_GET['run']) && ($_GET['run'] == 'shell')){
+				echo shell_exec('sh bash_test.sh');
+			}
+			?>
+		</form>
+    </div>
+</body>
+</html>
+
+
+
+
